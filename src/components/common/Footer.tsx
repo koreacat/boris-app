@@ -34,7 +34,7 @@ const FooterArea = styled.footer`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 24px;
+  margin-top: 12px;
   padding: 12px;
   background: linear-gradient(to left, #3f3f3f, #8c8c8c, #d3d3d3);
   color: white;

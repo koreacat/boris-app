@@ -19,26 +19,8 @@ install dependencies
 $ npm install
 ```
 
-api 서버 실행
-
-```
-$ npm run server
-```
-
 프론트 개발 환경 서버 실행 
 
 ```
 $ npm run start
-```
-
-배포 환경 서버 실행
-
-```
-$ npm run serve
-```
-
-번들 파일 생성
-
-```
-$ npm run analyzer
 ```

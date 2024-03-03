@@ -24,7 +24,7 @@ const TemplatesArea = styled.div`
 `
 
 const Section = styled.section`
-  padding-top: 64px;
+  padding-top: 68px;
 `
 
 export default Templates;
