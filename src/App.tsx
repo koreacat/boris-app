@@ -16,4 +16,4 @@ const App = () => {
 
 export default App;
 
-reportWebVitals(console.log) ;
+// reportWebVitals(console.log) ;
