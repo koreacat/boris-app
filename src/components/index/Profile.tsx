@@ -24,7 +24,7 @@ const Profile = () => {
 
   return (
     <ProfileArea>
-      <ProfileImage src="/boris01.jpg" alt="Boris the cat" />
+      <ProfileImage src="/boris01.jpg" alt="Boris the cat" width={360} height={360}/>
       <ProfileDetails>
         <ProfileTitle>Hi! I'm Boris,<br/><RainbowText>A {getProfileText()}</RainbowText><br />My first React project.</ProfileTitle>
         <ProfileText>I love tuna🐟, chasing lasers💥, and now, coding!👨‍💻</ProfileText>
@@ -53,8 +53,8 @@ const ProfileDetails = styled.div`
 `;
 
 const ProfileImage = styled.img`
-  width: 50%;
-  height: auto;
+  width: 360px;
+  height: 360px;
   border-radius: 50%;
 `;
 
@@ -71,7 +71,7 @@ const ProfileText = styled.h2`
 
 const GreetButton = styled.button`
   width: 300px;
-  background-color: #4CAF50;
+  background-color: #000000;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -81,7 +81,6 @@ const GreetButton = styled.button`
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: #3C9A4B;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transform: scale(1.05);
   }

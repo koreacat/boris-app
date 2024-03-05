@@ -4,6 +4,8 @@ import useJsonPlaceholder from '../../hooks/useJsonPlaceholder';
 const PlaceholderContents = () => {
   const data = useJsonPlaceholder();
 
+  if(!data) return null;
+
   return (
     <PlaceholderContentsArea>
       <h2>Contents</h2>
