@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react';
-import { createRoot } from 'react-dom/client';
+import { Root, createRoot } from 'react-dom/client';
 import styled, { keyframes } from 'styled-components';
-
-function fetchData() {
-  return new Promise(resolve => setTimeout(resolve, 5000));
-}
 
 interface ToastProps {
   onAnimationEnd: () => void;
@@ -12,14 +8,16 @@ interface ToastProps {
 }
 
 const Toast = ({ onAnimationEnd, children }: ToastProps) => {
-  const [data, setData] = useState<any[]>([]);
-  
+  const [_, setData] = useState<number[]>([]);
+
+  const miningBitcoin = async () => {
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    setData(new Array(10000000).fill(0));
+    console.log('setData');
+  }
+
   useEffect(() => {
-    (async () => {
-      await fetchData();
-      setData(new Array(10000000).fill(0));
-      console.log('setData');
-    })();
+    miningBitcoin();
 
     return (() => {
       console.log('unmount');
@@ -31,39 +29,22 @@ const Toast = ({ onAnimationEnd, children }: ToastProps) => {
   )
 }
 
-
 interface ToastHook {
   showToast: (msg: string) => void;
 }
 
 const useToast = (): ToastHook => {
-  const [isShow, setIsShow] = useState(false);
-
-  useEffect(() => {
-    const toastContainer = document.createElement('div');
-    toastContainer.id = 'toast-container';
-    document.body.appendChild(toastContainer);
-
-    return () => {
-      document.body.removeChild(toastContainer);
-    };
-  }, []);
+  const handleUnmount = (root: Root, toastContainer: HTMLDivElement) => {
+    document.body.removeChild(toastContainer);
+    root.unmount();
+  }
 
   const showToast = (msg: string) => {
-    if(isShow) return;
-
-    const handleUnmount = () => {
-      if (container) {
-        root.unmount();
-        setIsShow(false);
-      }
-    }
-
-    const toastElement = (<Toast onAnimationEnd={handleUnmount}>{msg}</Toast>);
-    const container = document.getElementById('toast-container');
-    const root = createRoot(container!);
+    const toastContainer = document.createElement('div');
+    const toastElement = (<Toast onAnimationEnd={() => handleUnmount(root, toastContainer)}>{msg}</Toast>);
+    const root = createRoot(toastContainer);
+    document.body.appendChild(toastContainer);
     root.render(toastElement);
-    setIsShow(true);
   };
 
   return { showToast };

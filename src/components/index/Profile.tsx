@@ -3,13 +3,32 @@ import RainbowText from '../common/RainbowText';
 import useCyclingIndex from '../../hooks/useCyclingIndex';
 import ProfileTextList from '../../constants/ProfileTextList';
 import useToast from '../../hooks/useToast';
+import { LegacyRef, forwardRef, useRef } from 'react';
 
-const Profile = () => {
-  const { showToast } = useToast();
+const ProfileTitle = forwardRef(({}, ref) => {
   const profileTextIndex = useCyclingIndex(ProfileTextList.length, 3000);
 
   const getProfileText = () => {
-    const profileText = ProfileTextList[profileTextIndex]; // B
+    const profileText = ProfileTextList[profileTextIndex];
+    return profileText;
+  }
+
+  return (
+    <Title>Hi! I'm Boris,
+      <br />
+      <RainbowText ref={ref as LegacyRef<HTMLSpanElement>}>A {getProfileText()}</RainbowText>
+      <br />My first React project.
+    </Title>
+  )
+}) 
+
+interface HiButtonProps {
+  titleRef: React.MutableRefObject<HTMLSpanElement | null>;
+}
+
+const HiButton = ({ titleRef }: HiButtonProps) => {
+  const getProfileText = () => {
+    const profileText = titleRef?.current?.innerHTML || 'Boris'; // B
     return profileText; // C
   }
 
@@ -19,14 +38,30 @@ const Profile = () => {
   }
 
   return (
+    <Button onClick={handleClickHi}>Say Hi to Boris</Button>
+  )
+}
+
+const DonateButton = () => {
+  const { showToast } = useToast();
+
+  return (
+    <Button onClick={() => showToast('Thank you for showing your love for Boris with your donation! 🐟🐱')}>🐟 Donate</Button>
+  )
+}
+
+const Profile = () => {
+  const titleRef = useRef<HTMLSpanElement | null>(null);
+
+  return (
     <ProfileArea>
       <ProfileImage src="/boris01.jpg" alt="Boris the cat" width={360} height={360} />
       <ProfileDetails>
-        <ProfileTitle>Hi! I'm Boris,<br /><RainbowText>A {getProfileText()}</RainbowText><br />My first React project.</ProfileTitle>
+        <ProfileTitle ref={titleRef}/>
         <ProfileText>I love tuna🐟, chasing lasers💥, and now, coding!👨‍💻</ProfileText>
         <ButtonWrap>
-          <Button onClick={handleClickHi}>Say Hi to Boris</Button>
-          <Button onClick={() => showToast('Thank you for showing your love for Boris with your donation! 🐟🐱')}>🐟 Donate</Button>
+          <HiButton titleRef={titleRef}/>
+          <DonateButton />
         </ButtonWrap>
       </ProfileDetails>
     </ProfileArea>
@@ -57,7 +92,7 @@ const ProfileImage = styled.img`
   border-radius: 50%;
 `;
 
-const ProfileTitle = styled.h2`
+const Title = styled.h2`
   color: #333;
   line-height: 1.5;
 `;
