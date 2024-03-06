@@ -9,9 +9,9 @@ const PlaceholderContents = () => {
   return (
     <PlaceholderContentsArea>
       <h2>Contents</h2>
-      <p>{data?.name}</p>
-      <p>{data?.body}</p>
-      <p>{data?.email}</p>
+      <p>{data.name}</p>
+      <p>{data.body}</p>
+      <p>{data.email}</p>
     </PlaceholderContentsArea>
   )
 }
