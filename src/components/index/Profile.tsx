@@ -2,33 +2,32 @@ import styled from 'styled-components';
 import RainbowText from '../common/RainbowText';
 import useCyclingIndex from '../../hooks/useCyclingIndex';
 import ProfileTextList from '../../constants/ProfileTextList';
-import { useEffect } from 'react';
+import useToast from '../../hooks/useToast';
 
 const Profile = () => {
+  const { showToast } = useToast();
   const profileTextIndex = useCyclingIndex(ProfileTextList.length, 3000);
-
-  useEffect(() => {
-    const root = document.getElementById('root');
-    root?.setAttribute('data-cat', 'boris');
-  }, []);
 
   const getProfileText = () => {
     const profileText = ProfileTextList[profileTextIndex]; // B
     return profileText; // C
   }
 
-  const handleClick = () => {
+  const handleClickHi = () => {
     const profileText = getProfileText(); // A
     alert(`Thanks for visiting! from.${profileText}`); // D
   }
 
   return (
     <ProfileArea>
-      <ProfileImage src="/boris01.jpg" alt="Boris the cat" width={360} height={360}/>
+      <ProfileImage src="/boris01.jpg" alt="Boris the cat" width={360} height={360} />
       <ProfileDetails>
-        <ProfileTitle>Hi! I'm Boris,<br/><RainbowText>A {getProfileText()}</RainbowText><br />My first React project.</ProfileTitle>
+        <ProfileTitle>Hi! I'm Boris,<br /><RainbowText>A {getProfileText()}</RainbowText><br />My first React project.</ProfileTitle>
         <ProfileText>I love tuna🐟, chasing lasers💥, and now, coding!👨‍💻</ProfileText>
-        <GreetButton onClick={handleClick}>Say Hi to Boris</GreetButton>
+        <ButtonWrap>
+          <Button onClick={handleClickHi}>Say Hi to Boris</Button>
+          <Button onClick={() => showToast('Thank you for showing your love for Boris with your donation! 🐟🐱')}>🐟 Donate</Button>
+        </ButtonWrap>
       </ProfileDetails>
     </ProfileArea>
   )
@@ -69,8 +68,16 @@ const ProfileText = styled.h2`
   line-height: 1.5;
 `;
 
-const GreetButton = styled.button`
+const ButtonWrap = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 6px;
+`
+
+const Button = styled.button`
   width: 300px;
+  height: 40px;
   background-color: #000000;
   padding: 10px 20px;
   border: none;
