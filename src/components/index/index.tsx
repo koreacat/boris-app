@@ -1,5 +1,5 @@
 import Templates from '../common/Templates'
-import Profile from './Profile';
+import Profile from './profile';
 import PlaceholderContents from './PlaceholderContents';
 import YoutubeIFrame from './YoutubeIFrame';
 
