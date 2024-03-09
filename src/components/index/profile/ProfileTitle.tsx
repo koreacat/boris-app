@@ -6,7 +6,7 @@ import { LegacyRef, forwardRef } from 'react';
 
 /**
  * TODO
- * [displayName 사용하기]
+ * [리액트 개발자 도구 - displayName 사용하기]
  */
 
 const ProfileTitle = forwardRef(({}, ref) => {

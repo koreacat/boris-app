@@ -4,7 +4,7 @@ import { memo } from 'react';
 
 /**
  * TODO
- * [기명 함수 사용하기]
+ * [리액트 개발자 도구 - 기명 함수 사용하기]
  */
 
 const DonateButton = memo(() => {

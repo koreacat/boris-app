@@ -16,6 +16,10 @@ const Toast = ({ onAnimationEnd, children }: ToastProps) => {
     console.log('setData');
   }
 
+  /**
+   * TODO
+   * [메모리 패널 - 누수 확인하기]
+   */
   useEffect(() => {
     miningBitcoin();
 

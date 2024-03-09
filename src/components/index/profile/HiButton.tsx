@@ -5,6 +5,12 @@ interface HiButtonProps {
 }
 
 const HiButton = ({ titleRef }: HiButtonProps) => {
+
+  /**
+   * TODO
+   * [소스 패널 - 중단점]
+   */
+
   const getProfileText = () => {
     const profileText = titleRef?.current?.innerHTML || 'Boris'; // B
     return profileText; // C

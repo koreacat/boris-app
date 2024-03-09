@@ -9,9 +9,19 @@ const Index = () => {
   return (
     <Templates>
       <Profile/>
+
+      {/* 
+        * TODO
+        * [리액트 개발자 도구 - Suspend 기능]
+      */}
       <Suspense fallback={'loading...'}>
         <PlaceholderContents />
       </Suspense>
+
+      {/* 
+        * TODO
+        * [네트워크 패널 - 프레임별 그룹 지정]
+      */}
       {/* <YoutubeIFrame /> */}
     </Templates>
   )
