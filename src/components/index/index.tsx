@@ -11,16 +11,16 @@ const Index = () => {
       <Profile/>
 
       {/* 
-        * TODO
-        * [리액트 개발자 도구 - Suspend 기능]
+        * TODO 4.
+        * [리액트 개발자 도구 - Components Suspend 기능 사용해보기]
       */}
       <Suspense fallback={'loading...'}>
         <PlaceholderContents />
       </Suspense>
 
       {/* 
-        * TODO
-        * [네트워크 패널 - 프레임별 그룹 지정]
+        * TODO 2.
+        * [네트워크 패널 - 네트워크 옵션 사용하기]
       */}
       {/* <YoutubeIFrame /> */}
     </Templates>

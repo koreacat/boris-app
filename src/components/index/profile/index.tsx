@@ -5,9 +5,10 @@ import HiButton from './HiButton';
 import DonateButton from './DonateButton';
 
 /**
- * TODO
- * [리액트 개발자 도구 - profiler로 리렌더링 확인하기 - Bad Code]
+ * TODO 5.
+ * [리액트 개발자 도구 - Profiler 리렌더링 확인하기(Bad Code)]
  */
+// --- 여기 부터 Bad Code --- 
 import useCyclingIndex from '../../../hooks/useCyclingIndex';
 import ProfileTextList from '../../../constants/ProfileTextList';
 import RainbowText from '../../common/RainbowText';
@@ -56,10 +57,12 @@ const Title = styled.h2`
   color: #333;
   line-height: 1.5;
 `;
+// --- 여기까지 Bad Code ---
+
 
 /**
- * TODO
- * [리액트 개발자 도구 - profiler로 리렌더링 확인하기 - Good Code]
+ * TODO 5.
+ * [리액트 개발자 도구 - Profiler 리렌더링 확인하기(Good Code)]
  */
 
 // const Profile = () => {

@@ -5,8 +5,8 @@ function useJsonPlaceholder(): CommentRs | null {
   const [data, setData] = useState<CommentRs | null>(null);
 
   /**
-   * TODO
-   * [hooks 기명 함수 사용하기]
+   * TODO 4.
+   * [리액트 개발자 도구 - Components hooks 기명 함수 사용하기]
    */
 
   const fetchData = useCallback(async () => {

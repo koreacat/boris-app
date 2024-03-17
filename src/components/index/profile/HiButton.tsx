@@ -7,7 +7,7 @@ interface HiButtonProps {
 const HiButton = ({ titleRef }: HiButtonProps) => {
 
   /**
-   * TODO
+   * TODO 1.
    * [소스 패널 - 중단점]
    */
 
