@@ -2,7 +2,19 @@ import styled from 'styled-components';
 import RainbowText from '../../common/RainbowText';
 import useCyclingIndex from '../../../hooks/useCyclingIndex';
 import ProfileTextList from '../../../constants/ProfileTextList';
-import { LegacyRef, forwardRef } from 'react';
+import { LegacyRef, forwardRef, memo } from 'react';
+
+
+interface SubTitleProps {
+  value: string;
+}
+
+const SubTitle = memo(({ value }: SubTitleProps) => {
+  return (
+    <span>{value}</span>
+  )
+});
+
 
 /**
  * TODO
@@ -18,10 +30,12 @@ const ProfileTitle = forwardRef(({}, ref) => {
   }
 
   return (
-    <Title>Hi! I'm Boris,
+    <Title>
+      <SubTitle value="Hi! I'm Boris,"/>
       <br />
       <RainbowText ref={ref as LegacyRef<HTMLSpanElement>}>A {getProfileText()}</RainbowText>
-      <br />My first React project.
+      <br />
+      <SubTitle value="My first React project."/>
     </Title>
   )
 });
