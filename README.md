@@ -26,3 +26,5 @@ $ npm install
 ```
 $ npm run start
 ```
+
+실습 완료
