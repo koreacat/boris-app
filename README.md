@@ -1,6 +1,4 @@
-## TGC - UIX 기반 개발 이해 및 활용 방안
-
-개발자 도구 세션 실습 프로젝트 입니다.
+## 개발자 도구 실습 프로젝트
 
 [과제 설명 링크](https://koreacat.notion.site/449b6a249eec48b4baa6e5fcb1fc6e5b)
 
